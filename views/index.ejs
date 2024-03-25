@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <h3>The Number of Farms that have black soil:</h3>
+  <div>
+    <p>Count of Black Soil Farms: <%= blackSoilCount %></p>
+  </div>
+
+  <h3>The Average Location of Farms that have black soil:</h3>
+  <div>
+    <p>Average Location for Black Soil Farms: <%= avgLocationForBlackSoil %></p>
+  </div>
+
+  <h3> Analysts that have made more than five insights:</h3>
+  <% insightCounts.forEach(function(analyst){ %>
+    <div>
+      <div>
+        <label>Analyst ID: <output><%= analyst.analyst_id %></output> </label>
+      </div>
+      <div>
+        <label>Insight Count: <output><%= analyst.insight_count %></output> </label>
+      </div>
+    </div>
+    <hr>
+  <% }); %>
+
+  <h3>Farms that grow wild crop varieties:</h3>
+  <% wildCropFarm.forEach(function(farm){ %>
+    <div>
+      <div>
+        <label>Farm ID: <output><%= farm.farm_id %></output> </label>
+      </div>
+      <div>
+        <label>Location: <output><%= farm.location %></output> </label>
+      </div>
+      <div>
+        <label>Crop name: <output><%= farm.crop_name %></output> </label>
+      </div>
+      <div>
+        <label>Soil type: <output><%= farm.soil_type %></output> </label>
+      </div>
+    </div>
+    <hr>
+  <% }); %>
+
+  <h3> Average rainfall and rain coverage for each farm:</h3>
+  <% environmentalData.forEach(function(evrData){ %>
+    <div>
+      <div>
+        <label>Farm ID: <output><%= evrData.farm_id %></output> </label>
+      </div>
+      <div>
+        <label>Average RainFall: <output><%= evrData.avg_rain_coverage %></output> </label>
+      </div>
+      <div>
+        <label>Average Soil Moisture: <output><%= evrData.avg_soil_moisture %></output> </label>
+      </div>
+    </div>
+    <hr>
+  <% }); %>
+
+  <footer>
+    <div>Made by Lily Lane</div>
+  </footer>
+</body>
+
+</html>
